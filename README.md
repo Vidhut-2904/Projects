@@ -1,1 +1,0 @@
-**Hotel Cancellation Data Set**- The dataset showcases the cancellation of hotels. Have used different ML models to check which model provides us better performance. Multiple metrics are used to identify the performance of model.
