@@ -1,1 +1,81 @@
 Link: https://wokwi.com/projects/383151349067527169
+
+{
+  "version": 1,
+  "author": "SHUBHAM SUTAR",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-nano",
+      "id": "nano",
+      "top": 30,
+      "left": -55.33,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -164,
+      "left": -120.53,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 127.13,
+      "left": 131.86,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 127.39,
+      "left": 186.8,
+      "rotate": 90,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 126.99,
+      "left": 240.4,
+      "rotate": 90,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -251.85,
+      "left": 199.63,
+      "attrs": { "size": "17" }
+    },
+    { "type": "wokwi-a4988", "id": "drv1", "top": -18.27, "left": 132, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -192.84, "left": -218.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -91.6, "left": -197.66, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": -77.5, "left": 206.27, "attrs": {} }
+  ],
+  "connections": [
+    [ "lcd1:SCL", "nano:A5", "orange", [ "h-19.8", "v150.67" ] ],
+    [ "lcd1:SDA", "nano:A4", "gray", [ "h-30.47", "v220.83" ] ],
+    [ "btn1:1.r", "btn2:1.r", "black", [ "v20.7", "h56.81" ] ],
+    [ "btn3:1.r", "btn2:1.r", "black", [ "v20.84", "h-55.07" ] ],
+    [ "btn1:1.r", "nano:GND.2", "black", [ "v22.04", "h-83.19", "v-97.33" ] ],
+    [ "btn1:2.l", "nano:2", "green", [ "v0" ] ],
+    [ "btn2:2.l", "nano:3", "yellow", [ "v0" ] ],
+    [ "btn3:2.l", "nano:4", "white", [ "v0" ] ],
+    [ "drv1:DIR", "nano:8", "green", [ "h-59.13", "v-17.23" ] ],
+    [ "drv1:STEP", "nano:9", "white", [ "h-52.47", "v-3.63" ] ],
+    [ "drv1:RESET", "drv1:SLEEP", "black", [ "h-21.8", "v8.9" ] ],
+    [ "stepper1:A-", "drv1:2B", "orange", [ "v0" ] ],
+    [ "stepper1:A+", "drv1:2A", "green", [ "v0" ] ],
+    [ "stepper1:B+", "drv1:1A", "blue", [ "v0" ] ],
+    [ "stepper1:B-", "drv1:1B", "violet", [ "v0" ] ],
+    [ "vcc1:VCC", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "lcd1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "vcc2:VCC", "drv1:VMOT", "red", [ "v0" ] ],
+    [ "drv1:GND.2", "btn3:1.l", "black", [ "h125.02", "v85.11" ] ]
+  ],
+  "dependencies": {}
+}
