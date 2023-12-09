@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploratory Data Analysis Result</title>
+</head>
+<body>
+    <h1>Exploratory Data Analysis Result</h1>
+
+    <div>
+        <h2>Sample Data</h2>
+        {{ result['sample_data'] | safe }}
+    </div>
+
+    <div>
+        <h2>Removed Rows</h2>
+        <p>{{ result['removed_rows'] }}</p>
+    </div>
+
+    <div>
+        <h2>Overview of Data</h2>
+        {{ result['overview'] | safe }}
+    </div>
+
+    <div>
+        <h2>Descriptive Statistics</h2>
+        {{ result['descriptive_stats'] | safe }}
+    </div>
+
+    <div>
+        <h2>Unique Values in Each Column</h2>
+        {{ result['unique_values'] | safe }}
+    </div>
+
+    <div>
+        <h2>Correlation Matrix</h2>
+        {{ result['correlation_matrix'] | safe }}
+    </div>
+
+    <!-- Display images -->
+    <div>
+        <h2>Images</h2>
+        {% for image_path in result['image_paths'] %}
+        <img src="{{ url_for('static', filename=image_path) }}" alt="Data Visualization">
+        {% endfor %}
+    </div>
+
+    <!-- Add additional sections for any other output you have -->
+
+</body>
+</html>
